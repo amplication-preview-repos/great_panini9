@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package chatRoom;
+service ChatRoomService {
+ rpc createChatRoom (ChatRoomCreateInput) returns (ChatRoom) {}
+rpc chatRooms (findManyParams) returns (stream ChatRoom) {}
+rpc chatRoom (ChatRoomWhereUniqueInput) returns (ChatRoom) {}
+rpc updateChatRoom (ChatRoomUpdateInput) returns (ChatRoom) {}
+rpc deleteChatRoom (ChatRoomWhereUniqueInput) returns (ChatRoom) {}
+rpc findManyChatRoom (ChatRoomWhereUniqueInput) returns (stream Message) {}
+rpc updateChatRoom (MessageParams) returns (stream Message) {}
+rpc connectChatRoom (MessageParams) returns (Message) {}
+rpc disconnectChatRoom (MessageParams) returns (Message) {} 
+ }
+message ChatRoomCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Message messages = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message ChatRoom {
+string createdAt = 1;
+string id = 2;
+repeated Message messages = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message ChatRoomWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Message messages = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message ChatRoomUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Message messages = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Message {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message MessageWhereUniqueInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message MessageParams {
+ChatRoomWhereUniqueInput chatRoomWhereUniqueInput = 1;
+MessageWhereUniqueInput messageWhereUniqueInput = 2;
+};

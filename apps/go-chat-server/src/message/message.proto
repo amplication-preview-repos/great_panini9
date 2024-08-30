@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package message;
+service MessageService {
+ rpc createMessage (MessageCreateInput) returns (Message) {}
+rpc messages (findManyParams) returns (stream Message) {}
+rpc message (MessageWhereUniqueInput) returns (Message) {}
+rpc updateMessage (MessageUpdateInput) returns (Message) {}
+rpc deleteMessage (MessageWhereUniqueInput) returns (Message) {} 
+ }
+message MessageCreateInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message Message {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message MessageWhereUniqueInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message MessageUpdateInput {
+string content = 1;
+string createdAt = 2;
+string id = 3;
+string sender = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
